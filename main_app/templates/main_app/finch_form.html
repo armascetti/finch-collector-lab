@@ -8,16 +8,18 @@
 {% block content %}
 
 <div class="page-header">
- {% if object %}
-    <h1>Edit {{object.name}}</h1>
+  {% if object %}
+    <h1>Edit {{ object.name }}</h1>
   {% else %}
     <h1>Add a Finch</h1>
   {% endif %}
-  <img src="{% static 'images/glassesfinch.PNG' %}" alt="finch in sunglasses"/>
+  <img src="{% static 'images/glassesfinch.PNG' %}" alt="A fin wearing sunglasses"/>
 </div>
+{% comment %} 
+  Leaving the action empty makes the form post to the same url used to display it
+{% endcomment %}
 
 <form action="" method="post" class="form-container">
-
   {% csrf_token %}
   <table>
     {{ form.as_table }}
